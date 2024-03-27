@@ -23,9 +23,8 @@ const TaskList = ({ todos, setTodos }) => {
   console.log(todos);
 
   // Filter todos by priority
-  const filterTodosByStatus = (priority) => {
-    // console.log(todos);
-    return todos.filter(todo => todo.priority === priority);
+  const filterTodosByStatus = (status) => {
+    return todos.filter(todo => todo.status === status);
   };
 
   return (
@@ -36,7 +35,7 @@ const TaskList = ({ todos, setTodos }) => {
             {status}
           </p>
           <div className='flex flex-col gap-2'>
-            {todos.map((todo) => (
+            {filterTodosByStatus(status).map((todo) => (
               <TaskCard todo={todo} />
             ))}
 

@@ -33,7 +33,7 @@ const AddTask = () => {
       dueDate,
       priority,
       description,
-      status: 'upcoming'
+      status: 'Upcoming'
     };
 
     // Update tasks state with the new task
