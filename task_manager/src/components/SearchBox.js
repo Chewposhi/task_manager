@@ -13,6 +13,7 @@ const SearchBox = () => {
 
   return (
     <div className='flex flex-col items-center mx-auto max-w-sm'>
+      {/* search box */}
       <div className='w-full relative'>
         <input 
           value={searchString} 
@@ -27,6 +28,7 @@ const SearchBox = () => {
           <AiOutlineSearch />
         </button>
       </div>
+      {/* popup form */}
       <div>
         <Popup trigger=
             {<div className="relative bg-white bg-opacity-90 rounded-xl mt-4 hover:cursor-pointer">
@@ -46,4 +48,5 @@ const SearchBox = () => {
   )
 }
 
-export default SectionWrapper(SearchBox)
+// export default SectionWrapper(SearchBox)
+export default SearchBox;

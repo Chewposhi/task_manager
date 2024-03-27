@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { SectionWrapper } from '../hoc';
 import { styles } from '../styles';
+import TaskList from './TaskList';
 
-const Piority= () => {
-  const [selected, setSelected] = useState(["low"]);
+const Piority= ({ todos }) => {
+  const [selected, setSelected] = useState([]);
 
   const handleCheckboxClick = (value) => {
     // Check if the value is already in selected
@@ -18,8 +19,9 @@ const Piority= () => {
     }
     console.log(selected);
   };
+
   return (
-    <div className='flex flex-col items-center gap-2'>
+    <div className='flex flex-col items-center gap-20'>
       <p className={styles.sectionSubText}>
         Filter by Priority
       </p>
@@ -39,12 +41,11 @@ const Piority= () => {
         </div>
       </div>
       {/* tasks list */}
-      <div className='flex gap-2'>
-        
-      </div>
+      <TaskList todos={todos}/>
     </div>
     
   )
 }
 
-export default SectionWrapper(Piority);
+// export default SectionWrapper(Piority);
+export default Piority;
