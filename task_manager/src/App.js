@@ -13,12 +13,8 @@ function App() {
     if (formDataString) {
       // Parse the JSON string to convert it into an object
       const storedTodos = JSON.parse(formDataString);
-      console.log(storedTodos);
       const updatedTodos = UpdateTasks(storedTodos);
-      // console.log('after: '+updatedTodos);
       setTodos(updatedTodos);
-      // console.log('Form data from local storage:', typeof(storedTodosArray));
-      // Handle the form data as needed (e.g., display it in the UI)
     } else {
       console.log('No form data found in local storage');
     }
