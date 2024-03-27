@@ -1,9 +1,15 @@
+import { styles } from "./styles";
+import Hero from "./components/Hero";
+import SearchBox from "./components/SearchBox";
+import Piority from "./components/Piority";
+
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+    <div className="flex flex-col items-center">
+      <Hero />
+      <SearchBox />
+      <Piority />
+      <div className={styles.padding}>task lists</div>
     </div>
   );
 }
