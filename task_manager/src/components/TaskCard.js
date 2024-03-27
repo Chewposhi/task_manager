@@ -1,9 +1,26 @@
-import React from 'react'
+import React from 'react';
+import { SectionWrapper } from '../hoc';
 
-export default function TaskCard() {
+const TaskCard = () => {
   return (
-    <div>
-      
+    <div className='flex flex-col items-center'>
+      <div className='flex'>
+        <p>
+          name
+        </p>
+        <p>
+          due date
+        </p>
+        <p>
+          Priority
+        </p>
+        <div></div>
+      </div>
+      <div>
+        <p>description</p>
+      </div>
     </div>
   )
 }
+
+export default SectionWrapper(TaskCard);

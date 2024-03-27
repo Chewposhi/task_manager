@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { SectionWrapper } from '../hoc';
 import { AiOutlineSearch } from 'react-icons/ai';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import AddTask from './AddTask';
 
 const SearchBox = () => {
   const [searchString, setSearchString] = useState("");
@@ -24,11 +27,18 @@ const SearchBox = () => {
           <AiOutlineSearch />
         </button>
       </div>
-      <div className="relative bg-white bg-opacity-90 rounded-xl mt-4 hover:cursor-pointer">
-        <img src="./additem.png" alt="Add task" className="w-16 h-16 object-cover" />
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 bg-black bg-opacity-75 hover:opacity-100">
-          <p className="text-white text-lg text-center">Add task</p>
-        </div>
+      <div>
+        <Popup trigger=
+            {<div className="relative bg-white bg-opacity-90 rounded-xl mt-4 hover:cursor-pointer">
+            <img src="./additem.png" alt="Add task" className="w-16 h-16 object-cover" />
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 bg-black bg-opacity-75 hover:opacity-100">
+              <p className="text-white text-lg text-center">Add task</p>
+            </div>
+          </div>}
+            position="bottom center"
+            modal>
+            <AddTask />
+        </Popup>
       </div>
     </div>
 

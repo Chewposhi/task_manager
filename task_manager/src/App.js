@@ -1,14 +1,14 @@
 import { styles } from "./styles";
 import Hero from "./components/Hero";
 import SearchBox from "./components/SearchBox";
-import Piority from "./components/Piority";
+import Priority from "./components/Priority";
 
 function App() {
   return (
     <div className="flex flex-col items-center">
       <Hero />
       <SearchBox />
-      <Piority />
+      <Priority />
       <div className={styles.padding}>task lists</div>
     </div>
   );
