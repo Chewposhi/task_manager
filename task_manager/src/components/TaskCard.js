@@ -24,7 +24,7 @@ const Todo = ({ todo }) => {
   return (
     <div className="flex flex-col gap-2 sm:flex-row justify-between items-center mx-auto my-4 text-white bg-gradient-to-r from-orange-500 to-orange-400 rounded-lg p-4 w-11/12 sm:w-full" key={todo.id}>
       <div className="mb-2 sm:mb-0 w-[300px]">
-        <p className="whitespace-normal text-center">
+        <p className="overflow-auto text-center custom-scrollbar">
           {todo.title}
         </p>
       </div>

@@ -3,7 +3,7 @@ import { SectionWrapper } from '../hoc';
 import { styles } from '../styles';
 import TaskList from './TaskList';
 
-const Piority= ({ todos }) => {
+const Piority= ({ todos, setTodos }) => {
   const [selected, setSelected] = useState([]);
 
   const handleCheckboxClick = (value) => {
@@ -41,7 +41,7 @@ const Piority= ({ todos }) => {
         </div>
       </div>
       {/* tasks list */}
-      <TaskList todos={todos}/>
+      <TaskList todos={todos} setTodos={setTodos}/>
     </div>
     
   )
