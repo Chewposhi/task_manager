@@ -15,7 +15,6 @@ function EditTasks(newTodo) {
             // For non-matching IDs, return the original object
             return todo;
           });
-        console.log(updatedTodosTodos);
         localStorage.setItem('tasks', JSON.stringify(updatedTodosTodos));
         window.location.reload();
       } else {

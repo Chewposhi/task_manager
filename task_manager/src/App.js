@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="relative z-0">
       <Hero />
-      <SearchBox />
+      <SearchBox todos={todos} setTodos={setTodos}/>
       <Priority todos={todos} setTodos={setTodos}/>
     </div>
   );

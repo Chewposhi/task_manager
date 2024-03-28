@@ -5,18 +5,6 @@ import TaskList from './TaskList';
 const Piority= ({ todos, setTodos }) => {
   const [selected, setSelected] = useState([]);
 
-  useEffect(() => {
-    const latestTodos = JSON.parse(localStorage.getItem('tasks'));
-    if(selected.length == 0){
-      setTodos(latestTodos);
-      return;
-    }
-    // Filter the array and keep only the objects with status included in the selected array
-    const filteredTodos = latestTodos.filter(todo => selected.includes(todo.priority));
-    setTodos(filteredTodos);
-  }, [selected]);
-  
-
   const handleCheckboxClick = (value) => {
     // Check if the value is already in selected
     if (selected.includes(value)) {
@@ -51,7 +39,7 @@ const Piority= ({ todos, setTodos }) => {
         </div>
       </div>
       {/* tasks list */}
-      <TaskList todos={todos} setTodos={setTodos}/>
+      <TaskList todos={todos} setTodos={setTodos} selected={selected}/>
     </div>
     
   )

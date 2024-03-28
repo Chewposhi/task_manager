@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { styles } from '../styles';
 import TaskCard from './TaskCard';
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
-const TaskList = ({ todos, setTodos }) => {
+const TaskList = ({ todos, setTodos, selected }) => {
   // const [todos, setTodos] = useState([]);
   const status = ['Upcoming', 'Overdue', 'Completed'];
 
@@ -23,7 +22,7 @@ const TaskList = ({ todos, setTodos }) => {
           </p>
           <div className='flex flex-col gap-2'>
             {filterTodosByStatus(status).map((todo) => (
-              <TaskCard todo={todo} />
+              (selected.length==0 || selected.includes(todo.priority)) && <TaskCard todo={todo} />
             ))}
 
           </div>

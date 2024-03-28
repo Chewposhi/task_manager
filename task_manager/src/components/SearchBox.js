@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
-import { SectionWrapper } from '../hoc';
+import React, { useState,useEffect } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import AddTask from './AddTask';
 
-const SearchBox = () => {
+const SearchBox = ({ todos, setTodos }) => {
   const [searchString, setSearchString] = useState("");
   const handleInputChange = (event) => {
     setSearchString(event.target.value);
   };
+
+  useEffect(() => {
+    const latestTodos = JSON.parse(localStorage.getItem('tasks'));
+    if(searchString.length == 0){
+      setTodos(latestTodos);
+      return;
+    }
+    // Filter the array and keep only the objects with status included in the selected array
+    const filteredTodos = latestTodos.filter(todo => todo.title.toLowerCase().includes(searchString.toLowerCase()));
+
+    setTodos(filteredTodos);
+  }, [searchString]);
 
   return (
     <div className='flex flex-col items-center mx-auto max-w-sm'>
