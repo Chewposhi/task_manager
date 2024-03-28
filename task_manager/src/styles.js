@@ -13,7 +13,13 @@ const styles = {
     sectionSubText:
       "sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider text-center",
     modalText:
-      "sm:text-[18px] text-[14px] text-secondary text-center text-black"
+      "sm:text-[18px] text-[14px] text-secondary text-center text-black",
+    High: 
+        "bg-red-600",
+    Medium:
+      "bg-yellow-400", 
+    Low:
+      "bg-blue-800",
   };
   
   export { styles };

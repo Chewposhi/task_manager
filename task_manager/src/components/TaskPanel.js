@@ -1,9 +1,21 @@
 import React, { useState,useEffect } from 'react';
 import { styles } from '../styles';
 import TaskList from './TaskList';
+import { PieChart, pieChartDefaultProps, PieChartProps } from 'react-minimal-pie-chart';
 
-const Piority= ({ todos, setTodos }) => {
+const TaskPanel= ({ todos, setTodos }) => {
   const [selected, setSelected] = useState([]);
+  const status = ['Upcoming', 'Overdue', 'Completed'];
+  const [statusCount, setStatusCount] = useState({
+    Upcoming: 0,
+    Completed: 0,
+    Overdue: 0
+  });
+  const lineWidth = 60;
+
+  status.forEach(status => {
+    statusCount[status] = todos.filter(todo => todo.status === status).length;
+  });
 
   const handleCheckboxClick = (value) => {
     // Check if the value is already in selected
@@ -19,7 +31,7 @@ const Piority= ({ todos, setTodos }) => {
   };
 
   return (
-    <div className='flex flex-col items-center gap-20'>
+    <div className='flex flex-col items-center gap-5'>
       <p className={styles.sectionSubText}>
         Filter by Priority
       </p>
@@ -39,11 +51,28 @@ const Piority= ({ todos, setTodos }) => {
         </div>
       </div>
       {/* tasks list */}
-      <TaskList todos={todos} setTodos={setTodos} selected={selected}/>
+      <TaskList todos={todos} setTodos={setTodos} selected={selected} statusCount={statusCount} setStatusCount={setStatusCount}/>
+      <PieChart
+        className='w-[300px] sm:w-[700px]'
+        style={{
+          fontSize: '5px',
+        }}
+        radius={pieChartDefaultProps.radius - 6}
+        lineWidth={lineWidth}
+        label={({ dataEntry }) => statusCount[dataEntry.title] === 0? "" : dataEntry.title + ": " + dataEntry.value }
+        labelPosition={lineWidth}
+        labelStyle={{
+          fill: '#fff',
+          pointerEvents: 'none',
+        }}
+        data={[
+          { title: 'Upcoming', value: statusCount['Upcoming'], color: '#063895' },
+          { title: 'Completed', value: statusCount['Completed'], color: '#6AB802' },
+          { title: 'Overdue', value: statusCount['Overdue'], color: '#952D06' },
+        ]}
+      />
     </div>
     
   )
 }
-
-// export default SectionWrapper(Piority);
-export default Piority;
+export default TaskPanel;

@@ -1,6 +1,5 @@
 import React from 'react';
-import { styles } from "../styles";;
-import { SectionWrapper } from "../hoc";
+import { styles } from "../styles";
 
 const Hero = () => {
     return (
