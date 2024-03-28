@@ -9,6 +9,7 @@ import { styles } from '../styles';
 
 import DeleteTasks from '../util/DeleteTask';
 import CompleteTasks from '../util/CompleteTask';
+import AddTask from './AddTask';
 
 const Todo = ({ todo }) => {
   const [edit, setEdit] = useState({
@@ -63,10 +64,15 @@ const Todo = ({ todo }) => {
             onClick={() => onDeleteTask(todo.id)}
             className='cursor-pointer'
           />
-          <TiEdit
-            // onClick={() => setEdit({ id: todo.id, value: todo.text })}
-            className='cursor-pointer'
-          />
+          <Popup trigger={
+            <TiEdit
+              // onClick={() => setEdit({ id: todo.id, value: todo.text })}
+              className='cursor-pointer'
+            />
+          } modal nested>
+            <AddTask todo={todo} isEdit={true}/>
+          </Popup>
+          
         </div>
       </div>
   );

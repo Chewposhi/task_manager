@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import 'reactjs-popup/dist/index.css';
+import EditTasks from '../util/EditTask';
 
-const AddTask = () => {
+const AddTask = ({ todo, isEdit }) => {
   // State variables to store form input values
-  const [idCounter, setIdCounter] = useState(1);
-  const [title, setTitle] = useState('');
-  const [dueDate, setDueDate] = useState('');
-  const [priority, setPriority] = useState('');
-  const [description, setDescription] = useState('');
-  const [tasks, setTasks] = useState([]);;
+  const [idCounter, setIdCounter] = useState(todo == null? 1 : todo.id );
+  const [title, setTitle] = useState(todo == null? '' : todo.title);
+  const [dueDate, setDueDate] = useState(todo == null? '' : todo.dueDate);
+  const [priority, setPriority] = useState(todo == null? '' : todo.priority);
+  const [description, setDescription] = useState(todo == null? '' : todo.description);
+  const [tasks, setTasks] = useState([]);
 
   const currentDate = new Date().toISOString().split('T')[0];
 
@@ -27,8 +28,9 @@ const AddTask = () => {
   // Handler for form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newTask = {
-      id: idCounter,
+
+    const newTodo = {
+      id: isEdit? todo.id : idCounter,
       title,
       dueDate,
       priority,
@@ -36,11 +38,17 @@ const AddTask = () => {
       status: 'Upcoming'
     };
 
+    if(isEdit){
+      console.log("edit");
+      EditTasks(newTodo);
+      return;
+    }
+
     // Update tasks state with the new task
-    setTasks([...tasks, newTask]);
+    setTasks([...tasks, newTodo]);
 
     // Update local storage with the updated tasks
-    localStorage.setItem('tasks', JSON.stringify([...tasks, newTask]));
+    localStorage.setItem('tasks', JSON.stringify([...tasks, newTodo]));
 
     // Increment the ID counter for the next task
     setIdCounter(idCounter + 1);
@@ -103,7 +111,7 @@ const AddTask = () => {
           className="shadow appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
-      <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+      <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">{isEdit? "Save" :"Submit"}</button>
     </form>
   );
 };

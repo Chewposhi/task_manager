@@ -39,7 +39,7 @@ const SearchBox = () => {
           </div>}
             position="bottom center"
             modal>
-            <AddTask />
+            <AddTask todo={null} isEdit={false}/>
         </Popup>
       </div>
     </div>
