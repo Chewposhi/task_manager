@@ -35,7 +35,7 @@ const Todo = ({ todo }) => {
   // }
 
   return (
-      <div className="flex flex-col gap-2 sm:flex-row justify-between items-center mx-auto my-2 text-white bg-gradient-to-r from-orange-600 to-orange-400 rounded-lg p-4 w-11/12 sm:w-full" key={todo.id}>
+      <div className={`flex flex-col gap-2 sm:flex-row justify-between items-center mx-auto my-2 text-white green-pink-gradient rounded-lg p-4 w-11/12 sm:w-full`} key={todo.id}>
         <div className="mb-2 sm:mb-0 w-[300px]">
           <Popup trigger={
             <p className="font-bold overflow-auto text-center custom-scrollbar hover:cursor-pointer">

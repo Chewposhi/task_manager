@@ -23,7 +23,7 @@ const SearchBox = ({ todos, setTodos }) => {
   }, [searchString]);
 
   return (
-    <div className='flex flex-col gap-3 my-10 items-center mx-auto max-w-sm'>
+    <div className='flex flex-col gap-10 my-10 items-center mx-auto max-w-sm'>
         {/* popup form */}
         <div>
           <Popup trigger=

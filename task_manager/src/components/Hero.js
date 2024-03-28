@@ -4,7 +4,7 @@ import { styles } from "../styles";
 const Hero = () => {
     return (
       <div>
-        <p className={styles.heroHeadText}>
+        <p className={`${styles.heroHeadText}`}>
             Task Managment Dashboard
         </p>
       </div>
