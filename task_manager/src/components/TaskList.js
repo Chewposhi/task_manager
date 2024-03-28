@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { styles } from '../styles';
 import TaskCard from './TaskCard';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 const TaskList = ({ todos, setTodos }) => {
   // const [todos, setTodos] = useState([]);
@@ -24,7 +26,8 @@ const TaskList = ({ todos, setTodos }) => {
 
   // Filter todos by priority
   const filterTodosByStatus = (status) => {
-    return todos.filter(todo => todo.status === status);
+    const filtered = todos.filter(todo => todo.status === status);
+    return filtered;
   };
 
   return (

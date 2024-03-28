@@ -2,12 +2,23 @@ import React, { useState } from 'react';
 // import TodoForm from './TodoForm';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
+import { TiTickOutline } from "react-icons/ti";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import { styles } from '../styles';
+
+import DeleteTasks from '../util/DeleteTask';
 
 const Todo = ({ todo }) => {
   const [edit, setEdit] = useState({
     id: null,
     value: ''
   });
+
+  // delete task
+  const onDeleteTask = id =>{
+    DeleteTasks(id);
+  }
 
   // const submitUpdate = value => {
   //   updateTodo(edit.id, value);
@@ -22,32 +33,36 @@ const Todo = ({ todo }) => {
   // }
 
   return (
-    <div className="flex flex-col gap-2 sm:flex-row justify-between items-center mx-auto my-4 text-white bg-gradient-to-r from-orange-500 to-orange-400 rounded-lg p-4 w-11/12 sm:w-full" key={todo.id}>
-      <div className="mb-2 sm:mb-0 w-[300px]">
-        <p className="overflow-auto text-center custom-scrollbar">
-          {todo.title}
-        </p>
+      <div className="flex flex-col gap-2 sm:flex-row justify-between items-center mx-auto my-4 text-white bg-gradient-to-r from-orange-500 to-orange-400 rounded-lg p-4 w-11/12 sm:w-full" key={todo.id}>
+        <div className="mb-2 sm:mb-0 w-[300px]">
+          <Popup trigger={
+            <p className="overflow-auto text-center custom-scrollbar hover:cursor-pointer">
+              {todo.title}
+            </p>
+          } modal>
+            <p className={styles.modalText}>{todo.description}</p>
+          </Popup>
+        </div>
+        <div className="flex-1 mb-2 sm:mb-0">
+          {todo.dueDate}
+        </div>
+        <div className="flex-1 mb-2 sm:mb-0">
+          {todo.priority}
+        </div>
+        <div className="flex items-center gap-1 text-2xl">
+          <TiTickOutline className='cursor-pointer'
+            // onClick={}
+          />
+          <RiCloseCircleLine
+            onClick={() => onDeleteTask(todo.id)}
+            className='cursor-pointer'
+          />
+          <TiEdit
+            // onClick={() => setEdit({ id: todo.id, value: todo.text })}
+            className='cursor-pointer'
+          />
+        </div>
       </div>
-      <div className="flex-1 mb-2 sm:mb-0">
-        {todo.dueDate}
-      </div>
-      <div className="flex-1 mb-2 sm:mb-0">
-        {todo.priority}
-      </div>
-      <div className="flex items-center text-2xl cursor-pointer">
-        <RiCloseCircleLine
-          // onClick={() => removeTodo(todo.id)}
-          className="mr-1"
-        />
-        <TiEdit
-          // onClick={() => setEdit({ id: todo.id, value: todo.text })}
-          className=""
-        />
-      </div>
-    </div>
-
-
-
   );
 };
 
