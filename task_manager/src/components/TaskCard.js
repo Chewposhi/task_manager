@@ -8,6 +8,7 @@ import 'reactjs-popup/dist/index.css';
 import { styles } from '../styles';
 
 import DeleteTasks from '../util/DeleteTask';
+import CompleteTasks from '../util/CompleteTask';
 
 const Todo = ({ todo }) => {
   const [edit, setEdit] = useState({
@@ -18,6 +19,11 @@ const Todo = ({ todo }) => {
   // delete task
   const onDeleteTask = id =>{
     DeleteTasks(id);
+  }
+
+  // complete task
+  const onCompleteTask = id =>{
+    CompleteTasks(id);
   }
 
   // const submitUpdate = value => {
@@ -33,7 +39,7 @@ const Todo = ({ todo }) => {
   // }
 
   return (
-      <div className="flex flex-col gap-2 sm:flex-row justify-between items-center mx-auto my-4 text-white bg-gradient-to-r from-orange-500 to-orange-400 rounded-lg p-4 w-11/12 sm:w-full" key={todo.id}>
+      <div className="flex flex-col gap-2 sm:flex-row justify-between items-center mx-auto my-2 text-white bg-gradient-to-r from-orange-500 to-orange-400 rounded-lg p-4 w-11/12 sm:w-full" key={todo.id}>
         <div className="mb-2 sm:mb-0 w-[300px]">
           <Popup trigger={
             <p className="overflow-auto text-center custom-scrollbar hover:cursor-pointer">
@@ -50,9 +56,9 @@ const Todo = ({ todo }) => {
           {todo.priority}
         </div>
         <div className="flex items-center gap-1 text-2xl">
-          <TiTickOutline className='cursor-pointer'
-            // onClick={}
-          />
+          {todo.status != 'Completed' && <TiTickOutline className='cursor-pointer'
+            onClick={() => onCompleteTask(todo.id)}
+          />}
           <RiCloseCircleLine
             onClick={() => onDeleteTask(todo.id)}
             className='cursor-pointer'

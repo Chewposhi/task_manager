@@ -22,7 +22,6 @@ const TaskList = ({ todos, setTodos }) => {
   //   }
   // }, []); // Run this effect only once on component mount
 
-  console.log(todos);
 
   // Filter todos by priority
   const filterTodosByStatus = (status) => {
