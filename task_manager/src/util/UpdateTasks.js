@@ -11,7 +11,6 @@ function UpdateTasks(todos) {
       todoDue.setMinutes(59);
         if(todo.status === 'Upcoming' && todoDue < currentDate){
                 // Update the object's value (assuming 'value' is the property name)
-                console.log('current date: '+currentDate+ " due date: "+ todoDue);
                 todo.status = 'Overdue';
         }
       // You can add more conditions as needed based on your requirements

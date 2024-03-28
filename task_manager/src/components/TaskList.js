@@ -8,21 +8,6 @@ const TaskList = ({ todos, setTodos }) => {
   // const [todos, setTodos] = useState([]);
   const status = ['Upcoming', 'Overdue', 'Completed'];
 
-  // useEffect(() => {
-  //   // Read data from local storage
-  //   const formDataString = localStorage.getItem('tasks');
-  //   if (formDataString) {
-  //     // Parse the JSON string to convert it into an object
-  //     const storedTodos = JSON.parse(formDataString);
-  //     setTodos(storedTodos);
-  //     // console.log('Form data from local storage:', storedTodos);
-  //     // Handle the form data as needed (e.g., display it in the UI)
-  //   } else {
-  //     console.log('No form data found in local storage');
-  //   }
-  // }, []); // Run this effect only once on component mount
-
-
   // Filter todos by priority
   const filterTodosByStatus = (status) => {
     const filtered = todos.filter(todo => todo.status === status);

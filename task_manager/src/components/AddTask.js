@@ -39,7 +39,6 @@ const AddTask = ({ todo, isEdit }) => {
     };
 
     if(isEdit){
-      console.log("edit");
       EditTasks(newTodo);
       return;
     }
