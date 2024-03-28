@@ -17,7 +17,7 @@ const SearchBox = ({ todos, setTodos }) => {
       return;
     }
     // Filter the array and keep only the objects with status included in the selected array
-    const filteredTodos = latestTodos.filter(todo => todo.title.toLowerCase().includes(searchString.toLowerCase()));
+    const filteredTodos = latestTodos.filter(todo => todo.title.toLowerCase().includes(searchString.toLowerCase()) || todo.description.toLowerCase().includes(searchString.toLowerCase()) );
 
     setTodos(filteredTodos);
   }, [searchString]);
