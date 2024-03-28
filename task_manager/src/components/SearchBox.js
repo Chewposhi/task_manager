@@ -1,10 +1,9 @@
 import React, { useState,useEffect } from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import AddTask from './AddTask';
 
-const SearchBox = ({ todos, setTodos }) => {
+const SearchBox = ({ setTodos }) => {
   const [searchString, setSearchString] = useState("");
   const handleInputChange = (event) => {
     setSearchString(event.target.value);

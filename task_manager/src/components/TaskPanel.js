@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { styles } from '../styles';
 import TaskList from './TaskList';
-import { PieChart, pieChartDefaultProps, PieChartProps } from 'react-minimal-pie-chart';
+import { PieChart, pieChartDefaultProps } from 'react-minimal-pie-chart';
 
 const TaskPanel= ({ todos, setTodos }) => {
   const [selected, setSelected] = useState([]);
@@ -13,9 +13,30 @@ const TaskPanel= ({ todos, setTodos }) => {
   });
   const lineWidth = 60;
 
-  status.forEach(status => {
-    statusCount[status] = todos.filter(todo => todo.status === status).length;
-  });
+  const latestTask = localStorage.getItem('tasks');
+  if (latestTask) {
+    // Parse the JSON string to convert it into an object
+    const storedTodos = JSON.parse(latestTask);
+    status.forEach(status => {
+      statusCount[status] = storedTodos.filter(todo => todo.status === status).length;
+    })
+  }else {
+    console.log('No form data found in local storage');
+  };
+
+  useEffect(() => {
+    const newStatusCount = {}; // Create a new object to hold updated counts
+  
+    // Loop through each status
+    status.forEach(statusItem => {
+      // Filter todos based on status and get the count
+      const count = todos.filter(todo => todo.status === statusItem).length;
+      newStatusCount[statusItem] = count; // Assign the count to the status in the new object
+    });
+  
+    // Update the state with the new status counts
+    setStatusCount(newStatusCount);
+  }, [status, todos]);
 
   const handleCheckboxClick = (value) => {
     // Check if the value is already in selected

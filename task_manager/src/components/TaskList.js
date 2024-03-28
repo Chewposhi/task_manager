@@ -3,7 +3,7 @@ import { styles } from '../styles';
 import TaskCard from './TaskCard';
 import 'reactjs-popup/dist/index.css';
 
-const TaskList = ({ todos, setTodos, selected, statusCount, setStatusCount }) => {
+const TaskList = ({ todos, selected, statusCount }) => {
   // const [todos, setTodos] = useState([]);
   const status = ['Upcoming', 'Overdue', 'Completed'];
   // const [statusCount, setStatusCount] = useState({

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { styles } from "./styles";
 import Hero from "./components/Hero";
 import SearchBox from "./components/SearchBox";
 import TaskPanel from "./components/TaskPanel";
