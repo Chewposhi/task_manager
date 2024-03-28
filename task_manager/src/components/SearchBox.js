@@ -44,7 +44,7 @@ const SearchBox = ({ todos, setTodos }) => {
           value={searchString} 
           onChange={handleInputChange} 
           type='search' 
-          placeholder='Search for a task' 
+          placeholder='Search for a task, enter title or description' 
           className='w-full p-4 rounded-full bg-slate-800' 
         />
       </div>
