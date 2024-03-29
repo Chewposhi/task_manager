@@ -19,10 +19,10 @@ const TaskList = ({ todos, selected, statusCount }) => {
 
 
   // Filter todos by priority
-  const filterTodosByStatus = (status) => {
-    const filtered = todos.filter(todo => todo.status === status);
-    return filtered;
-  };
+  // const filterTodosByStatus = (status) => {
+  //   const filtered = todos.filter(todo => todo.status === status);
+  //   return filtered;
+  // };
 
   return (
     <div className="flex justify-evenly flex-wrap gap-10 w-full sm:w-auto mt-10 ">

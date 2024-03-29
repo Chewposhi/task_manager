@@ -22,18 +22,6 @@ const Todo = ({ todo }) => {
     CompleteTasks(id);
   }
 
-  // const submitUpdate = value => {
-  //   updateTodo(edit.id, value);
-  //   setEdit({
-  //     id: null,
-  //     value: ''
-  //   });
-  // };
-
-  // if (edit.id) {
-  //   return <TodoForm edit={edit} onSubmit={submitUpdate} />;
-  // }
-
   return (
       <div className={`flex flex-col gap-2 sm:flex-row justify-between items-center mx-auto my-2 text-white green-pink-gradient rounded-lg p-4 w-11/12 sm:w-full`} key={todo.id}>
         <div className="mb-2 sm:mb-0 w-[300px]">

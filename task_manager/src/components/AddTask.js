@@ -8,6 +8,7 @@ const AddTask = ({ todo, isEdit }) => {
   const [title, setTitle] = useState(todo == null? '' : todo.title);
   const [dueDate, setDueDate] = useState(todo == null? '' : todo.dueDate);
   const [priority, setPriority] = useState(todo == null? '' : todo.priority);
+  const [status, setStatus] = useState(todo == null? '' : todo.status);
   const [description, setDescription] = useState(todo == null? '' : todo.description);
   const [tasks, setTasks] = useState([]);
 
@@ -35,7 +36,7 @@ const AddTask = ({ todo, isEdit }) => {
       dueDate,
       priority,
       description,
-      status: 'Upcoming'
+      status: isEdit? todo.status : 'Upcoming'
     };
 
     if(isEdit){
