@@ -36,7 +36,7 @@ const TaskPanel= ({ todos, setTodos }) => {
   
     // Update the state with the new status counts
     setStatusCount(newStatusCount);
-  }, [status, todos]);
+  }, [todos]);
 
   const handleCheckboxClick = (value) => {
     // Check if the value is already in selected

@@ -4,18 +4,19 @@ import TaskCard from './TaskCard';
 import 'reactjs-popup/dist/index.css';
 
 const TaskList = ({ todos, selected, statusCount }) => {
-  // const [todos, setTodos] = useState([]);
   const status = ['Upcoming', 'Overdue', 'Completed'];
-  // const [statusCount, setStatusCount] = useState({
-  //   Upcoming: 0,
-  //   Completed: 0,
-  //   Overdue: 0
-  // });
+  // const [counts, setCount] = useState({'Upcoming':[], 'Overdue':[], 'Completed':[]});
 
-  // Compute status count
-  // status.forEach(status => {
-  //   statusCount[status] = todos.filter(todo => todo.status === status).length;
-  // });
+  // useEffect(()=>{
+  //   console.log(todos);
+  //   setCount(Object.groupBy(todos, todo => todo.status));
+  //   console.log(counts);
+  //   console.log(counts["Upcoming"]);
+  // },[todos])
+
+  const counts = Object.groupBy(todos, todo => todo.status)
+  console.log((Object.keys(counts).includes("Upcoming")))
+
 
   // Filter todos by priority
   const filterTodosByStatus = (status) => {
@@ -31,7 +32,10 @@ const TaskList = ({ todos, selected, statusCount }) => {
             {status +": "+ statusCount[status]}
           </p>
           <div className='flex flex-col gap-2'>
-            {filterTodosByStatus(status).map((todo) => (
+            {/* {filterTodosByStatus(status).map((todo) => (
+              (selected.length===0 || selected.includes(todo.priority)) && <TaskCard todo={todo} />
+            ))} */}
+            {Object.keys(counts).length > 0 && Object.keys(counts).includes(status) && counts[status].map((todo) => (
               (selected.length===0 || selected.includes(todo.priority)) && <TaskCard todo={todo} />
             ))}
 
