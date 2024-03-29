@@ -17,4 +17,4 @@ return(
 ## Q3. How would you track down a performance issue in production? Have you ever had to do this?
 ### A3. I would track the performance by observing the time taken for each operation. I did something similar for a search engine project in which I had to track the time taken for each search
 ## Q4. If you had more time, what additional features or improvements would you consider adding to the task management application?
-### A4. I would modify the application logic so the page does not need to reload every time a task is created or modified. I would also improve the styling with better theme and colour 
+### A4. I would modify the application logic so the page does not need to reload every time a task is created or modified. I would also improve the styling with better theme and colour. A reminder system will be good to have, that alerts the user when a task is going to be overdue. A sorter would be good to have as well.
