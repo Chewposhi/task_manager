@@ -5,7 +5,7 @@ const Hero = () => {
     return (
       <div>
         <p className={`${styles.heroHeadText}`}>
-            Task Managment Dashboard
+            Task Managment Dashboard test
         </p>
       </div>
     );
