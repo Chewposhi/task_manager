@@ -36,7 +36,8 @@ const AddTask = ({ todo, isEdit }) => {
       dueDate,
       priority,
       description,
-      status: isEdit? todo.status : 'Upcoming'
+      // status: isEdit? todo.status : 'Upcoming'
+      status: 'Upcoming'
     };
 
     if(isEdit){
@@ -82,7 +83,7 @@ const AddTask = ({ todo, isEdit }) => {
           value={dueDate}
           onChange={(e) => setDueDate(e.target.value)}
           required
-          min={currentDate}
+          min={currentDate-7}
           className="shadow appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
