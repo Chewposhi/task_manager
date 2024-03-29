@@ -62,15 +62,15 @@ const TaskPanel= ({ todos, setTodos }) => {
       <div className="flex">
         <div className="flex items-center me-4">
           <input checked = {selected.includes("High")} onChange={() => handleCheckboxClick("High")} id="inline-checkbox" type="checkbox" value="high" name="inline-checkbox-group" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-          <label htmlFor="inline-checkbox" className="ms-2 text-lg font-medium text-red-900 dark:text-red-300">High</label>
+          <label htmlFor="inline-checkbox" className="ms-2 text-lg font-medium text-red-900 dark:text-red-900">High</label>
         </div>
         <div className="flex items-center me-4">
           <input checked = {selected.includes("Medium")} onChange={() => handleCheckboxClick("Medium")} id="inline-2-checkbox" type="checkbox" value="medium" name="inline-checkbox-group" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-          <label htmlFor="inline-2-checkbox" className="ms-2 text-lg font-medium text-yellow-900 dark:text-yellow-300">Medium</label>
+          <label htmlFor="inline-2-checkbox" className="ms-2 text-lg font-medium text-yellow-900 dark:text-yellow-900">Medium</label>
         </div>
         <div className="flex items-center me-4">
           <input checked = {selected.includes("Low")} onChange={() => handleCheckboxClick("Low")} id="inline-3-checkbox" type="checkbox" value="low" name="inline-checkbox-group" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-          <label htmlFor="inline-3-checkbox" className="ms-2 text-lg font-medium text-blue-900 dark:text-blue-300">Low</label>
+          <label htmlFor="inline-3-checkbox" className="ms-2 text-lg font-medium text-blue-900 dark:text-blue-00">Low</label>
         </div>
       </div>
       {/* tasks list */}
