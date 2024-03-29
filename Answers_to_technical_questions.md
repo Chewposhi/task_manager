@@ -1,7 +1,7 @@
 ## Q1. How long did you spend on the coding test?
 ### A1. 2.5 days
 ## Q2. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
-### A2. The new JavaScript Object method: `Object.groupBy()`. I was able to use this to group the task objects with the same status with just one line instead of using a function that filters the array of objects by status for each status
+### A2. The new JavaScript Object method: `Object.groupBy()`. I was able to use this to group the task objects with the same status with just one line instead of using a function that filters the array of objects by status for each status. However, this method is not yet supported by safari, therefore, I have decided to temporary disable this function and use an alternative.
 #### Code snippet:
 ````
 counts = Object.groupBy(todos, todo => todo.status)
