@@ -15,7 +15,6 @@ const TaskList = ({ todos, selected, statusCount }) => {
   // },[todos])
 
   const counts = Object.groupBy(todos, todo => todo.status)
-  console.log((Object.keys(counts).includes("Upcoming")))
 
 
   // Filter todos by priority
