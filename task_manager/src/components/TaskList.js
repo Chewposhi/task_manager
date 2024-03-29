@@ -25,7 +25,7 @@ const TaskList = ({ todos, selected, statusCount }) => {
   // };
 
   return (
-    <div className="flex justify-evenly flex-wrap gap-10 w-full sm:w-auto mt-10 ">
+    <div className="flex justify-evenly flex-wrap gap-10 w-full sm:w-auto mt-10 p-5 bg-black bg-opacity-10 rounded-lg ">
       {status.map((status) => (
         <div className={`w-[700px] max-h-[2000px] overflow-auto`}>
           <p className={styles.sectionSubText}>
