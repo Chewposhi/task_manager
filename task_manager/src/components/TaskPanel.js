@@ -28,14 +28,16 @@ const TaskPanel= ({ todos, setTodos }) => {
     const newStatusCount = {}; // Create a new object to hold updated counts
   
     // Loop through each status
-    status.forEach(statusItem => {
-      // Filter todos based on status and get the count
-      const count = todos.filter(todo => todo.status === statusItem).length;
-      newStatusCount[statusItem] = count; // Assign the count to the status in the new object
-    });
-  
-    // Update the state with the new status counts
-    setStatusCount(newStatusCount);
+    if(todos!== null){
+        status.forEach(statusItem => {
+        // Filter todos based on status and get the count
+          const count = todos.filter(todo => todo.status === statusItem).length;
+          newStatusCount[statusItem] = count; // Assign the count to the status in the new object
+        });
+        // Update the state with the new status counts
+        setStatusCount(newStatusCount);
+    }
+
   }, [todos]);
 
   const handleCheckboxClick = (value) => {

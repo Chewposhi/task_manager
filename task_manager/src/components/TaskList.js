@@ -13,8 +13,11 @@ const TaskList = ({ todos, selected, statusCount }) => {
   //   console.log(counts);
   //   console.log(counts["Upcoming"]);
   // },[todos])
-
-  const counts = Object.groupBy(todos, todo => todo.status)
+  let counts = null;
+  if(todos!==null){
+    counts = Object.groupBy(todos, todo => todo.status)
+  } 
+  
 
 
   // Filter todos by priority
@@ -31,10 +34,10 @@ const TaskList = ({ todos, selected, statusCount }) => {
             {status +": "+ statusCount[status]}
           </p>
           <div className='flex flex-col gap-2'>
-            {/* {filterTodosByStatus(status).map((todo) => (
+            {/* {todos && filterTodosByStatus(status).map((todo) => (
               (selected.length===0 || selected.includes(todo.priority)) && <TaskCard todo={todo} />
             ))} */}
-            {Object.keys(counts).length > 0 && Object.keys(counts).includes(status) && counts[status].map((todo) => (
+            {counts!==null && Object.keys(counts).length > 0 && Object.keys(counts).includes(status) && counts[status].map((todo) => (
               (selected.length===0 || selected.includes(todo.priority)) && <TaskCard todo={todo} />
             ))}
 
